@@ -2,11 +2,15 @@ package org.quantumturf.authorization;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.quantumturf.BaseTest;
+import org.quantumturf.pageobjects.authorization.RegistrationPage;
 import org.quantumturf.pageobjects.mainpage.HomePage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -14,13 +18,15 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class RegistrationTest extends BaseTest {
+    private static final Logger log = LoggerFactory.getLogger(RegistrationTest.class);
     HomePage homepage;
-    RegistrationTest registrationTest;
+    RegistrationPage registrationPage;
+
 
     @BeforeMethod
     public void setUpPage() {
         homepage = new HomePage(driver, wait);
-        registrationTest = new RegistrationTest(driver, wait);
+        registrationPage = new RegistrationPage(driver, wait);
     }
 
     @Test
