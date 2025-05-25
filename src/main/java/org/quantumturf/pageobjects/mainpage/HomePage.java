@@ -22,6 +22,10 @@ public class HomePage {
         // PageFactory.initElements(driver, HomePage.class);
     }
 
+    public HomePage() {
+
+    }
+
     public void clickOnRegisterButton() {
         driver.findElement(registerButtonSelector).click();
     }

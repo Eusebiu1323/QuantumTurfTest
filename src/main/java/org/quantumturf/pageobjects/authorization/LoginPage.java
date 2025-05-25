@@ -10,7 +10,7 @@ import org.quantumturf.pageobjects.mainpage.HomePage;
 public class LoginPage extends HomePage {
     public final By emailSelector = By.xpath("//div[.='Email']/../following-sibling::div/input");
     public final By passwordSelector = By.xpath("//div[.='Password']/../following-sibling::div/input");
-    public final By continueButton=By.xpath(".green-button");
+    public final By continueButton=By.cssSelector(".green-button");
     private final By forgotPassword= By.xpath("//div[.='Forgot Password?']");
     public String loginURL = "https://www.quantumturf.io/login";
     public LoginPage(WebDriver driver, WebDriverWait wait) {

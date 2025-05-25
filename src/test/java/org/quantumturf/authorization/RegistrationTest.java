@@ -19,19 +19,19 @@ import java.time.Duration;
 
 public class RegistrationTest extends BaseTest {
     private static final Logger log = LoggerFactory.getLogger(RegistrationTest.class);
-    HomePage homepage;
+    HomePage homePage;
     RegistrationPage registrationPage;
 
 
     @BeforeMethod
     public void setUpPage() {
-        homepage = new HomePage(driver, wait);
+        homePage = new HomePage(driver, wait);
         registrationPage = new RegistrationPage(driver, wait);
     }
 
     @Test
     public void registerUser() {
-        homepage.clickOnRegisterButton();
+        homePage.clickOnRegisterButton();
 
         driver.findElement(By.xpath("//div[.='First Name']/following-sibling::div/input")).sendKeys("Alina");
         driver.findElement(By.xpath("//div[.='Last Name']/following-sibling::div/input")).sendKeys("Mocanu");
@@ -50,4 +50,13 @@ public class RegistrationTest extends BaseTest {
         Assert.assertTrue(alert.isDisplayed());
         Assert.assertEquals(alert.getText(), "This username already exists");
     }
+    @Test
+    public void registrationInvalidFirstName() {
+        homePage.clickOnRegisterButton();
+        registrationPage.fillFirstNameField("Ana@");
+        registrationPage.getInvalidFirstNameFormatErrorMessage();
+        Assert.assertEquals(registrationPage.getInvalidFirstNameFormatErrorMessage(), "Invalid first name format.");
+
+    }
+
 }

@@ -29,8 +29,8 @@ public class LoginTest extends BaseTest {
 @Test
 public void succesfullLoginTest(){
         loginPage.clickOnSignInButton();
-loginPage.fillEmailField("<EMAIL>");
-loginPage.typeAndDeletePassword("<PASSWORD>");
+loginPage.fillEmailField("rustyhaidu@gmail.com");
+loginPage.typeAndDeletePassword("SkillBrain06@");
 loginPage.clickOnContinue();
 
 }

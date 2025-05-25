@@ -15,7 +15,11 @@ public class RegistrationPage extends MainPage {
     public final By privacyPolicyCheckbox = By.xpath("//span[.='Privacy Policy']/preceding-sibling::span");
     public final By termsAndConditionsChrckbox = By.xpath("//span[.='Tems and Conditions']/preceding-sibling::span");
     public final By getStartedButton = By.xpath("button.btn");
+    public final By invalidFirstNameErrorMessage = By.xpath("//div[.='Invalid first name format.']");
 
+    public String getInvalidFirstNameFormatErrorMessage() {
+        return identify(invalidFirstNameErrorMessage).getText();
+    }
 
     public RegistrationPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
@@ -25,7 +29,7 @@ public class RegistrationPage extends MainPage {
         identify(lastNameSelector).sendKeys(lastName);
     }
 
-    private WebElement identify(By by) {
+    public WebElement identify(By by) {
         return null;
     }
 
